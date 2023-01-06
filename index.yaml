@@ -11,4 +11,14 @@ entries:
     urls:
     - https://github.com/MinBZK/helm.regels.overheid.nl/releases/download/cms-0.1.0/cms-0.1.0.tgz
     version: 0.1.0
-generated: "2023-01-06T15:18:15.345884529Z"
+  docs:
+  - apiVersion: v2
+    created: "2023-01-06T16:24:08.787153812Z"
+    description: The docs Helm chart for regels-overheid.nl
+    digest: 1454753070bae24c360ec0a4090005945d2d067bc527f3eb7a07d19d256db3d5
+    name: docs
+    type: application
+    urls:
+    - https://github.com/MinBZK/helm.regels.overheid.nl/releases/download/docs-0.1.0/docs-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-01-06T16:24:08.787158612Z"
