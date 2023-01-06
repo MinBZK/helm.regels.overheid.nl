@@ -25,12 +25,7 @@ jobs:
 
       - name: Install Helm
         uses: azure/setup-helm@v3
-        with:
-          version: v3.10.0
-          config: charts/cr.yaml
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.4.1
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          CR_OWNER: "MinBZK"
-          CR_GIT_REPO: "helm.regels.overheid.nl"
