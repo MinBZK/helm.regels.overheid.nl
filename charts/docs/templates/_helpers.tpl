@@ -23,6 +23,10 @@ If release name contains chart name it will be used as a full name.
 {{- end }}
 {{- end }}
 
+{{- define "docs.configSecretName" -}}
+{{- printf "%s-config" (include "docs.fullname" .) | trunc 63 | trimSuffix "-" }}
+{{- end }}
+
 {{/*
 Create chart name and version as used by the chart label.
 */}}

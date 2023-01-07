@@ -80,3 +80,9 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+# Accepts a list of environment variables to be set in the container
+config: {}
+
+# Set to use an existing secret for the config
+# configSecretName:
