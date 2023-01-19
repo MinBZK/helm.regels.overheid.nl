@@ -30,6 +30,15 @@ entries:
     version: 0.1.0
   docs:
   - apiVersion: v2
+    created: "2023-01-19T17:16:13.987644045Z"
+    description: The docs Helm chart for regels-overheid.nl
+    digest: 639066add237aeab3a5016907343ccee8197f8780d3ff623ff25bc3343077f47
+    name: docs
+    type: application
+    urls:
+    - https://github.com/MinBZK/helm.regels.overheid.nl/releases/download/docs-0.3.0/docs-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
     created: "2023-01-07T16:38:02.829013067Z"
     description: The docs Helm chart for regels-overheid.nl
     digest: 24a3fd296b35329dae588577856c3b7641458eadbf9addf67fea95a80ac13414
@@ -57,4 +66,4 @@ entries:
     urls:
     - https://github.com/MinBZK/helm.regels.overheid.nl/releases/download/web-0.1.0/web-0.1.0.tgz
     version: 0.1.0
-generated: "2023-01-19T15:20:50.09815517Z"
+generated: "2023-01-19T17:16:13.987656145Z"
