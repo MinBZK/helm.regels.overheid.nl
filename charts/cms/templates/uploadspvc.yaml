@@ -1,0 +1,28 @@
+{{- if .Values.uploadsPersistence.enabled }}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ template "cms.uploadsPvcName" . }}
+  namespace: {{ .Release.Namespace }}
+{{- with .Values.uploadsPersistence.annotations  }}
+  annotations:
+{{ toYaml . | indent 4 }}
+{{- end }}
+  labels:
+    app: {{ template "cms.fullname" . }}
+spec:
+  {{- range .Values.uploadsPersistence.accessModes }}
+  accessModes:
+    - {{ . | quote }}
+  {{- end }}
+  resources:
+    requests:
+      storage: {{ .Values.uploadsPersistence.size | quote }}
+{{- if .Values.uploadsPersistence.storageClass }}
+{{- if (eq "-" .Values.uploadsPersistence.storageClass) }}
+  storageClassName: ""
+{{- else }}
+  storageClassName: "{{ .Values.uploadsPersistence.storageClass }}"
+{{- end }}
+{{- end }}
+{{- end }}

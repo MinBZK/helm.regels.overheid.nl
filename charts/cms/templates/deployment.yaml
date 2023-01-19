@@ -11,6 +11,8 @@ spec:
   selector:
     matchLabels:
       {{- include "cms.selectorLabels" . | nindent 6 }}
+  strategy:
+        type: {{ .Values.deploymentStrategyType }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -27,8 +29,19 @@ spec:
       serviceAccountName: {{ include "cms.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      {{- if .Values.uploadsPersistence.enabled }}
+      volumes:
+        - name: uploads
+          persistentVolumeClaim:
+            claimName: {{ template "cms.uploadsPvcName" . }}
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
+          {{- if .Values.uploadsPersistence.enabled }}
+          volumeMounts:
+            - name: uploads
+              mountPath: /project/apps/cms/public/uploads
+            {{- end }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"

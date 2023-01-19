@@ -27,6 +27,10 @@ If release name contains chart name it will be used as a full name.
 {{- printf "%s-config" (include "cms.fullname" .) | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
+{{- define "cms.uploadsPvcName" -}}
+{{- printf "%s-uploads" (include "cms.fullname" .) | trunc 63 | trimSuffix "-" }}
+{{- end }}
+
 {{/*
 Create chart name and version as used by the chart label.
 */}}
