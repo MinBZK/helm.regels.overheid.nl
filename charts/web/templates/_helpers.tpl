@@ -64,3 +64,7 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{- define "web.publicPvcName" -}}
+{{- printf "%s-public" (include "web.fullname" .) | trunc 63 | trimSuffix "-" }}
+{{- end }}

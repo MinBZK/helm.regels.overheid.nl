@@ -86,3 +86,13 @@ config: {}
 
 # Set to use an existing secret for the config
 # configSecretName:
+
+deploymentStrategyType: Recreate
+
+publicPersistence:
+  enabled: true
+  storageClass: ""
+  annotations: {}
+  accessModes:
+    - ReadWriteOnce
+  size: 2Gi
