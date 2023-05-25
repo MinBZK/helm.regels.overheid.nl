@@ -2,6 +2,15 @@ apiVersion: v1
 entries:
   cms:
   - apiVersion: v2
+    created: "2023-05-25T22:01:18.721309651Z"
+    description: The CMS Helm chart for regels-overheid.nl
+    digest: a183771714cbe97fa7ef8480e3cb332324ed04d7c77fd971ead49bf9d5f6bb76
+    name: cms
+    type: application
+    urls:
+    - https://github.com/MinBZK/helm.regels.overheid.nl/releases/download/cms-0.2.2/cms-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v2
     created: "2023-01-19T15:20:50.098144371Z"
     description: The CMS Helm chart for regels-overheid.nl
     digest: d53925ae77c593218abf26f7075576e62e8b419942ab74711f7987bdbad43542
@@ -84,4 +93,4 @@ entries:
     urls:
     - https://github.com/MinBZK/helm.regels.overheid.nl/releases/download/web-0.1.0/web-0.1.0.tgz
     version: 0.1.0
-generated: "2023-02-24T10:58:51.467338601Z"
+generated: "2023-05-25T22:01:18.721605165Z"
