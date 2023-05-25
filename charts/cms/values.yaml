@@ -92,7 +92,7 @@ config: {}
 deploymentStrategyType: Recreate
 
 uploadsPersistence:
-  enabled: true
+  enabled: false
   storageClass: ""
   annotations: {}
   accessModes:
