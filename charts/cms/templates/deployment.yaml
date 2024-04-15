@@ -40,7 +40,7 @@ spec:
           {{- if .Values.uploadsPersistence.enabled }}
           volumeMounts:
             - name: uploads
-              mountPath: /project/apps/cms/public/uploads
+              mountPath: /app/apps/cms/public/uploads
             {{- end }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}

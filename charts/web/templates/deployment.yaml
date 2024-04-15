@@ -40,7 +40,7 @@ spec:
           {{- if .Values.publicPersistence.enabled }}
           volumeMounts:
             - name: public
-              mountPath: /project/apps/web/public/public
+              mountPath: /app/apps/web/public/public
           {{- end }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
