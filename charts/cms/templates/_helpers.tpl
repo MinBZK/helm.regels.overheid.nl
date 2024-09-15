@@ -23,12 +23,8 @@ If release name contains chart name it will be used as a full name.
 {{- end }}
 {{- end }}
 
-{{- define "cms.configSecretName" -}}
-{{- printf "%s-config" (include "cms.fullname" .) | trunc 63 | trimSuffix "-" }}
-{{- end }}
-
 {{- define "cms.uploadsPvcName" -}}
-{{- printf "%s-uploads" (include "cms.fullname" .) | trunc 63 | trimSuffix "-" }}
+{{- printf "%s-uploads" ( include "cms.fullname" . ) | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
