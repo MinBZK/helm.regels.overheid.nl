@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   cms:
   - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-09-19T11:38:37.106370965Z"
+    description: The CMS Helm chart for regels-overheid.nl
+    digest: c057dad976c68a1cfb8ee7a96fb2180e7a530008afe905a17623ee74e922b2f7
+    name: cms
+    type: application
+    urls:
+    - https://github.com/MinBZK/helm.regels.overheid.nl/releases/download/cms-0.3.0/cms-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
     created: "2024-04-15T15:26:41.834150831Z"
     description: The CMS Helm chart for regels-overheid.nl
     digest: 12fc156a19a748c9afaddcd586fea43f329d385c77d16ae5e95102674a2c35f8
@@ -57,6 +67,15 @@ entries:
     version: 0.1.0
   docs:
   - apiVersion: v2
+    created: "2024-09-19T11:38:37.298704228Z"
+    description: The docs Helm chart for regels-overheid.nl
+    digest: 68a976ddecfca9c8c7d0db5422459e3a73a71eb01b2b6940232d7fab5b8203d9
+    name: docs
+    type: application
+    urls:
+    - https://github.com/MinBZK/helm.regels.overheid.nl/releases/download/docs-0.4.0/docs-0.4.0.tgz
+    version: 0.4.0
+  - apiVersion: v2
     created: "2023-01-19T17:16:13.987644045Z"
     description: The docs Helm chart for regels-overheid.nl
     digest: 639066add237aeab3a5016907343ccee8197f8780d3ff623ff25bc3343077f47
@@ -85,6 +104,15 @@ entries:
     version: 0.1.0
   docs-beta:
   - apiVersion: v2
+    created: "2024-09-19T11:38:37.479157768Z"
+    description: The docs-beta Helm chart for regels-overheid.nl
+    digest: 76345d9164678c202e3111da8f82f8ce3a01942fb0e8896da51404e3f8b59273
+    name: docs-beta
+    type: application
+    urls:
+    - https://github.com/MinBZK/helm.regels.overheid.nl/releases/download/docs-beta-0.2.0/docs-beta-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
     created: "2024-04-21T23:13:22.61323206Z"
     description: The docs-beta Helm chart for regels-overheid.nl
     digest: 056507f5263d0fdc3a7e778b9939a425bfb3c826e848ce32daaeba315a2ab53d
@@ -103,6 +131,16 @@ entries:
     - https://github.com/MinBZK/helm.regels.overheid.nl/releases/download/docs-beta-0.1.0/docs-beta-0.1.0.tgz
     version: 0.1.0
   web:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-09-19T11:38:37.665723932Z"
+    description: A Helm chart for Kubernetes
+    digest: fb83e07084b76d4e096e2ec5a2f7b96f4147770f5756fc31fa65e903d0a513ba
+    name: web
+    type: application
+    urls:
+    - https://github.com/MinBZK/helm.regels.overheid.nl/releases/download/web-0.2.0/web-0.2.0.tgz
+    version: 0.2.0
   - apiVersion: v2
     created: "2024-04-15T15:26:41.953328151Z"
     description: The Web Helm chart for regels-overheid.nl
@@ -148,4 +186,4 @@ entries:
     urls:
     - https://github.com/MinBZK/helm.regels.overheid.nl/releases/download/web-0.1.0/web-0.1.0.tgz
     version: 0.1.0
-generated: "2024-04-21T23:13:22.613268228Z"
+generated: "2024-09-19T11:38:37.665802138Z"
