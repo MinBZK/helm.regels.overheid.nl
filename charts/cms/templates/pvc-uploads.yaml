@@ -1,0 +1,15 @@
+{{- if .Values.uploadsPvc.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "cms.uploadsPvcName" . }}
+  labels:
+    app: {{ .Release.Name }}
+spec:
+  accessModes:
+    - {{ .Values.uploadsPvc.accessMode }}
+  resources:
+    requests:
+      storage: {{ .Values.uploadsPvc.size }}
+  storageClassName: {{ .Values.uploadsPvc.storageClassName | quote }}
+{{- end }}

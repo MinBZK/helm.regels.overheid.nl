@@ -23,8 +23,8 @@ If release name contains chart name it will be used as a full name.
 {{- end }}
 {{- end }}
 
-{{- define "web.configSecretName" -}}
-{{- printf "%s-config" (include "web.fullname" .) | trunc 63 | trimSuffix "-" }}
+{{- define "web.publicPublicPvc" -}}
+{{- printf "%s-public-public" ( include "web.fullname" . ) | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
@@ -63,8 +63,4 @@ Create the name of the service account to use
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
-{{- end }}
-
-{{- define "web.publicPvcName" -}}
-{{- printf "%s-public" (include "web.fullname" .) | trunc 63 | trimSuffix "-" }}
 {{- end }}

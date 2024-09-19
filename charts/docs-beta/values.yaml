@@ -5,9 +5,9 @@
 replicaCount: 1
 
 image:
-  repository: registry.digitalocean.com/regels-overheid-nl/docs-beta
+  repository: regels.azurecr.io/docs-beta
   pullPolicy: IfNotPresent
-  tag: latest
+  tag: ""
 
 imagePullSecrets: []
 
@@ -47,7 +47,7 @@ service:
 
 ingress:
   enabled: true
-  className: nginx
+  className: webapprouting.kubernetes.azure.com
   annotations:
     {}
     # kubernetes.io/ingress.class: nginx

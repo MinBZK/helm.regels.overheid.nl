@@ -1,0 +1,15 @@
+{{- if .Values.publicPublicPvc.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "web.publicPublicPvc" . }}
+  labels:
+    app: {{ .Release.Name }}
+spec:
+  accessModes:
+    - {{ .Values.publicPublicPvc.accessMode }}
+  resources:
+    requests:
+      storage: {{ .Values.publicPublicPvc.size }}
+  storageClassName: {{ .Values.publicPublicPvc.storageClassName | quote }}
+{{- end }}

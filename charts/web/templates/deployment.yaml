@@ -11,8 +11,6 @@ spec:
   selector:
     matchLabels:
       {{- include "web.selectorLabels" . | nindent 6 }}
-  strategy:
-      type: {{ .Values.deploymentStrategyType }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -20,7 +18,10 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "web.selectorLabels" . | nindent 8 }}
+        {{- include "web.labels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
@@ -29,52 +30,38 @@ spec:
       serviceAccountName: {{ include "web.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
-      {{- if .Values.publicPersistence.enabled }}
-      volumes:
-        - name: public
-          persistentVolumeClaim:
-            claimName: {{ template "web.publicPvcName" . }}
-      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
-          {{- if .Values.publicPersistence.enabled }}
-          volumeMounts:
-            - name: public
-              mountPath: /app/apps/web/public/public
-          {{- end }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          {{- if not .Values.configSecretName }}
-          envFrom:
-            - secretRef:
-                name: {{ include "web.configSecretName" . }}
-          {{- else }}
-          envFrom:
-            - secretRef:
-                name: {{ .Values.configSecretName }}
-          {{- end }}
           ports:
             - name: http
-              containerPort: 9000
+              containerPort: {{ .Values.service.port }}
               protocol: TCP
-          startupProbe:
-            httpGet:
-              path: /
-              port: http
-            failureThreshold: 30
-            periodSeconds: 10
           livenessProbe:
-            httpGet:
-              path: /
-              port: http
+            {{- toYaml .Values.livenessProbe | nindent 12 }}
           readinessProbe:
-            httpGet:
-              path: /
-              port: http
+            {{- toYaml .Values.readinessProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            {{- if .Values.publicPublicPvc.enabled }}
+              - name: public-public
+                mountPath: /app/apps/web/public/public
+            {{- end }}
+          envFrom:
+            - secretRef:
+                name: {{ .Values.databaseExistingSecret }}
+            - configMapRef:
+                name: {{ .Values.envVarsCM }}
+      volumes:
+        {{- if .Values.publicPublicPvc.enabled }}
+        - name: public-public
+          persistentVolumeClaim:
+            claimName: {{ include "web.publicPublicPvc" . }}
+        {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
