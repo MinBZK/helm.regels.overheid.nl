@@ -52,10 +52,10 @@ ingress:
   enabled: true
   className: webapprouting.kubernetes.azure.com
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
   hosts:
     - paths:
-        - path: /cms
+        - path: /cms(/|$)(.*)
           pathType: Prefix
   tls: []
   #  - secretName: chart-example-tls
