@@ -6,7 +6,7 @@ metadata:
     {{- include "cms.labels" . | nindent 4 }}
 spec:
   strategy:
-    type: {{ .Values.startegyType }}
+    type: {{ .Values.strategyType }}
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
